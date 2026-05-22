@@ -4,26 +4,32 @@
 
 A low-power, always-on system that uses the Epiphany's 16 RISC cores to run many independent "explorers" in parallel. These explorers constantly generate ideas, alternative solutions, and novel connections without requiring user initiation.
 
-The key differentiator is **true parallel exploration** at very low power.
+The system also supports lighter, proactive chatbot-style interactions.
 
-## Current Components
+## Two Operating Modes
 
-- `core/explorer.c` + `shared_mem.h` — Per-core explorer logic
-- `aggregator/aggregator.py` — Main collection and orchestration loop
-- `aggregator/notifier.py` — Multi-channel notification system
-- `aggregator/config.py` — Engine configuration
-- `aggregator/shared_memory.py` — ARM-side memory reader (stub)
-- `docs/communication.md` — Shared memory protocol
+### 1. Parallel Exploration Mode (Primary Differentiator)
+- Multiple explorers run simultaneously across the Epiphany mesh
+- Each core can be assigned different roles (creative, technical, risk analysis, connections)
+- Results are aggregated, evaluated by Grok, and surfaced when interesting
+- This mode is difficult to replicate efficiently on normal single/quad-core boards
 
-## Runtime
+### 2. Light Chatbot / Check-in Mode
+- Simple proactive messages such as:
+  - "Haven't heard from you in a while, how are things?"
+  - Casual check-ins or follow-ups
+  - Lightweight conversational engagement
+- Runs with very low overhead
+- Uses the same Grok OAuth backend for natural responses
+- Provides a gentler, more approachable entry point for users
 
-The aggregator is intended to run as a systemd service (`parallella-idea-engine.service`).
+## System Components
 
-## Next Priorities
+- **Explorer Cores** — Run on Epiphany cores (can operate in either mode)
+- **Aggregator** — Collects results, deduplicates, and decides when to surface output
+- **Grok Client** — Handles evaluation and natural language generation via OAuth
+- **Notifier** — Delivers messages through chosen channels (console, Telegram, etc.)
 
-1. Real shared memory implementation (mmap + Epiphany driver)
-2. Grok OAuth integration for idea evaluation
-3. Better explorer specialization across cores
-4. Notification channel implementations (Telegram, etc.)
+## Current Status
 
-This architecture keeps the Epiphany's parallelism as the central value.
+Early development. Both modes are supported in the architecture, with the parallel exploration mode being the primary technical focus.
