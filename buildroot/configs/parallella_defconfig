@@ -1,0 +1,12 @@
+# Parallella 16 - Modern Buildroot Configuration
+# This is a placeholder. Real config will be generated later.
+
+BR2_arm=y
+BR2_cortex_a9=y
+BR2_TOOLCHAIN_EXTERNAL=y
+BR2_LINUX_KERNEL=y
+BR2_LINUX_KERNEL_DEFCONFIG="xilinx_zynq"
+BR2_PACKAGE_HOST_EPHANY_SDK=y
+BR2_PACKAGE_PYTHON3=y
+BR2_PACKAGE_WPA_SUPPLICANT=y
+BR2_PACKAGE_SYSTEMD=y
