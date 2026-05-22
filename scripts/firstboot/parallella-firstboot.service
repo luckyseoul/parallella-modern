@@ -1,0 +1,15 @@
+[Unit]
+Description=Parallella Modern First Boot Setup
+After=network.target
+ConditionPathExists=!/etc/parallella-setup-done
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/parallella-setup/installer.py
+RemainAfterExit=yes
+StandardOutput=tty
+StandardInput=tty
+TTYPath=/dev/tty1
+
+[Install]
+WantedBy=multi-user.target
