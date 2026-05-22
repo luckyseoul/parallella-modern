@@ -3,16 +3,16 @@
 ## Phase 1: Foundation (Current)
 - [x] Initial repository structure
 - [x] README and licensing
-- [ ] Buildroot base configuration for Parallella 16
-- [ ] Minimal working image (headless first)
+- [x] Headless and Desktop Buildroot configurations
+- [x] Basic FPGA bitstream loader
 
 ## Phase 2: User Experience
-- [ ] First-boot setup script (hostname, root password, WiFi)
+- [ ] First-boot setup script (Ubuntu Server style TUI)
 - [ ] Easy WiFi configuration tool
 - [ ] Basic documentation (getting started guide)
 
 ## Phase 3: Desktop & Tooling
-- [ ] XFCE desktop environment (or lightweight alternative)
+- [ ] XFCE desktop environment integration
 - [ ] Updated Epiphany SDK packaging
 - [ ] Python 3 + epiphany-ml bindings with LLM kernel support
 
@@ -30,4 +30,4 @@
 
 ## Long-term Vision
 
-Create a genuinely usable, modern Linux distribution for the Parallella that makes the Epiphany's parallel RISC capabilities relevant again for edge AI and specialized LLM workloads in 2026+. Focus on what RISC architectures do well: predictable execution, low power, and explicit parallelism for quantized and kernel-level operations.
+Create a genuinely usable, modern Linux distribution for the Parallella that makes the Epiphany's parallel RISC capabilities relevant again for edge AI and specialized LLM workloads in 2026+. Focus on what RISC architectures do well: predictable execution, low power, and explicit parallelism for quantized and kernel-level operations. Also provide solid FPGA support for hardware-software co-design.

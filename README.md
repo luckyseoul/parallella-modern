@@ -13,12 +13,23 @@ The goal is to revive the Parallella with a clean, maintainable, and user-friend
 - Simple update mechanism
 - Low resource requirements suitable for the board's hardware
 - Support for specialized RISC-based LLM workloads (quantized inference, attention kernels, speculative decoding helpers, KV cache management)
+- FPGA bitstream loading support
+
+## Image Variants
+
+We provide two main configurations:
+
+| Variant   | Target Use Case                     | Desktop | Size   |
+|-----------|-------------------------------------|---------|--------|
+| Headless  | Servers, edge nodes, ML inference   | No      | Small  |
+| Desktop   | Development, education, general use | XFCE    | Larger |
 
 ## Target Use Cases
 
 - Edge / low-power parallel computing research
 - Tiny ML inference experiments (especially quantized models)
 - RISC-specific LLM components (attention scoring, draft models, speculative decoding)
+- FPGA + Epiphany co-design experiments
 - Educational platform for parallel RISC programming
 - Lightweight desktop or headless development board
 
@@ -27,11 +38,11 @@ The goal is to revive the Parallella with a clean, maintainable, and user-friend
 **Early development** — Repository structure and planning phase.
 
 Planned features:
-- Buildroot-based image
-- XFCE desktop (or very lightweight alternative)
-- First-boot configuration script
+- Buildroot-based images (headless + desktop)
+- First-boot configuration script (Ubuntu Server style)
 - Easy WiFi setup
 - Updated Epiphany toolchain + Python bindings
+- Simple FPGA bitstream loader
 - Simple over-the-air update system
 - Example RISC-optimized LLM kernels
 
@@ -43,8 +54,10 @@ parallella-modern/
 ├── LICENSE
 ├── docs/                    # Documentation and plans
 ├── buildroot/
-│   └── configs/             # Buildroot defconfig
-├── scripts/                 # First-boot, WiFi, update tools
+│   └── configs/             # Buildroot defconfigs (headless + desktop)
+├── scripts/
+│   ├── firstboot/           # First-boot installer
+│   └── fpga/                # FPGA bitstream tools
 ├── examples/
 │   └── ml/                  # Tiny model examples + RISC LLM kernels
 └── .github/
@@ -57,6 +70,7 @@ This project is just getting started. Contributions, ideas, and feedback are wel
 - Buildroot configuration and package selection
 - Epiphany programming and tooling improvements
 - Small ML / parallel workloads and RISC-optimized LLM kernels
+- FPGA integration
 - Documentation and user experience
 
 ## License
