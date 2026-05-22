@@ -9,14 +9,16 @@ The goal is to revive the Parallella with a clean, maintainable, and user-friend
 - Minimal but usable desktop environment (XFCE preferred)
 - Easy first-boot setup (hostname, root password, WiFi)
 - Modern kernel and toolchain
-- Good Epiphany SDK integration with Python support
+- Strong Epiphany SDK integration with Python support
 - Simple update mechanism
 - Low resource requirements suitable for the board's hardware
+- Support for specialized RISC-based LLM workloads (quantized inference, attention kernels, speculative decoding helpers, KV cache management)
 
 ## Target Use Cases
 
 - Edge / low-power parallel computing research
-- Tiny ML inference experiments
+- Tiny ML inference experiments (especially quantized models)
+- RISC-specific LLM components (attention scoring, draft models, speculative decoding)
 - Educational platform for parallel RISC programming
 - Lightweight desktop or headless development board
 
@@ -31,6 +33,7 @@ Planned features:
 - Easy WiFi setup
 - Updated Epiphany toolchain + Python bindings
 - Simple over-the-air update system
+- Example RISC-optimized LLM kernels
 
 ## Repository Structure
 
@@ -43,7 +46,7 @@ parallella-modern/
 │   └── configs/             # Buildroot defconfig
 ├── scripts/                 # First-boot, WiFi, update tools
 ├── examples/
-│   └── ml/                  # Tiny model examples
+│   └── ml/                  # Tiny model examples + RISC LLM kernels
 └── .github/
 ```
 
@@ -53,7 +56,7 @@ This project is just getting started. Contributions, ideas, and feedback are wel
 
 - Buildroot configuration and package selection
 - Epiphany programming and tooling improvements
-- Small ML / parallel workloads
+- Small ML / parallel workloads and RISC-optimized LLM kernels
 - Documentation and user experience
 
 ## License

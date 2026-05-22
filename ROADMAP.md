@@ -14,12 +14,13 @@
 ## Phase 3: Desktop & Tooling
 - [ ] XFCE desktop environment (or lightweight alternative)
 - [ ] Updated Epiphany SDK packaging
-- [ ] Python 3 + epiphany-ml bindings
+- [ ] Python 3 + epiphany-ml bindings with LLM kernel support
 
-## Phase 4: ML & Parallel Focus
-- [ ] Tiny ML inference examples
-- [ ] Matrix multiplication / attention kernels optimized for Epiphany
-- [ ] Example projects (MNIST, small language model components)
+## Phase 4: RISC-Optimized LLM Workloads
+- [ ] Quantized inference runtime (INT8 / INT4)
+- [ ] Attention scoring and KV cache primitives
+- [ ] Speculative decoding helper (tiny draft model support)
+- [ ] Example RISC-optimized kernels for modern LLM components
 
 ## Phase 5: Polish & Maintenance
 - [ ] Simple update mechanism
@@ -28,4 +29,5 @@
 - [ ] Community feedback loop
 
 ## Long-term Vision
-Create a genuinely usable, modern Linux distribution for the Parallella that makes the Epiphany's parallel capabilities accessible again in 2026+.
+
+Create a genuinely usable, modern Linux distribution for the Parallella that makes the Epiphany's parallel RISC capabilities relevant again for edge AI and specialized LLM workloads in 2026+. Focus on what RISC architectures do well: predictable execution, low power, and explicit parallelism for quantized and kernel-level operations.
