@@ -1,55 +1,61 @@
 # Parallella Modern
 
-A modern, user-friendly Linux distribution for the **Parallella 16** (Zynq + 16-core Epiphany).
+A modern, lightweight Linux distribution for the **Parallella 16** (Zynq-7010 + 16-core Epiphany).
 
-The original Parallella images from 2015–2016 were powerful but painful to use. This project aims to bring the board into the 2020s with:
-
-- Easy first-boot setup (hostname, root password, WiFi)
-- Modern toolchain and kernel
-- Clean Epiphany SDK integration
-- Python support for small ML / parallel workloads
-- Simple update mechanism
+The goal is to revive the Parallella with a clean, maintainable, and user-friendly system that feels like a modern embedded Linux experience rather than the 2015-era images.
 
 ## Goals
 
-- Make the Parallella actually pleasant to develop on again
-- Provide a solid base for edge AI, parallel computing research, and education
-- Focus on the Epiphany's strengths: low-power, regular, data-parallel workloads
-- Create something maintainable that can actually be updated in 2026+
+- Minimal but usable desktop environment (XFCE preferred)
+- Easy first-boot setup (hostname, root password, WiFi)
+- Modern kernel and toolchain
+- Good Epiphany SDK integration with Python support
+- Simple update mechanism
+- Low resource requirements suitable for the board's hardware
 
-## Status
+## Target Use Cases
 
-**Early stage** — repository and structure being established.
+- Edge / low-power parallel computing research
+- Tiny ML inference experiments
+- Educational platform for parallel RISC programming
+- Lightweight desktop or headless development board
+
+## Current Status
+
+**Early development** — Repository structure and planning phase.
 
 Planned features:
-- Buildroot-based image with modern packages
-- First-boot configuration wizard
+- Buildroot-based image
+- XFCE desktop (or very lightweight alternative)
+- First-boot configuration script
 - Easy WiFi setup
-- Updated Epiphany SDK + Python bindings
-- Tiny ML inference examples
+- Updated Epiphany toolchain + Python bindings
+- Simple over-the-air update system
 
-## Directory Structure
+## Repository Structure
 
 ```
 parallella-modern/
 ├── README.md
-├── docs/                    # Documentation
+├── LICENSE
+├── docs/                    # Documentation and plans
 ├── buildroot/
 │   └── configs/             # Buildroot defconfig
-├── scripts/                 # First-boot, update, wifi helpers
+├── scripts/                 # First-boot, WiFi, update tools
 ├── examples/
 │   └── ml/                  # Tiny model examples
-└── .github/workflows/       # CI for building images
+└── .github/
 ```
 
 ## Contributing
 
-This project is just getting started. Ideas, patches, and discussions are welcome — especially around:
+This project is just getting started. Contributions, ideas, and feedback are welcome — especially in these areas:
 
-- Epiphany programming improvements
-- Small ML / parallel computing use cases
-- Making the board more accessible to new users
+- Buildroot configuration and package selection
+- Epiphany programming and tooling improvements
+- Small ML / parallel workloads
+- Documentation and user experience
 
 ## License
 
-MIT License (to be confirmed)
+MIT License — see [LICENSE](LICENSE) file.
