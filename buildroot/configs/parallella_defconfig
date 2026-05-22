@@ -1,12 +1,28 @@
 # Parallella 16 - Modern Buildroot Configuration
-# This is a placeholder. Real config will be generated later.
-
 BR2_arm=y
 BR2_cortex_a9=y
+
+# Toolchain
 BR2_TOOLCHAIN_EXTERNAL=y
+
+# Kernel
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_DEFCONFIG="xilinx_zynq"
-BR2_PACKAGE_HOST_EPHANY_SDK=y
+
+# System
+BR2_SYSTEM_DHCP="eth0"
+BR2_TARGET_GENERIC_HOSTNAME="parallella"
+
+# Packages
 BR2_PACKAGE_PYTHON3=y
+BR2_PACKAGE_DIALOG=y
 BR2_PACKAGE_WPA_SUPPLICANT=y
 BR2_PACKAGE_SYSTEMD=y
+BR2_PACKAGE_SYSTEMD_RESOLVED=y
+
+# Epiphany
+BR2_PACKAGE_HOST_EPHANY_SDK=y
+
+# Desktop (optional)
+BR2_PACKAGE_XFCE4_SESSION=y
+BR2_PACKAGE_XORG=y
