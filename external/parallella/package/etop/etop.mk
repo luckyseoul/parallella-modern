@@ -9,7 +9,7 @@ ETOP_SITE = $(BR2_EXTERNAL_PARALLELLA_PATH)/../../scripts/etop
 ETOP_SITE_METHOD = local
 
 define ETOP_BUILD_CMDS
-	$(MAKE) -C $(@D) CC="$(TARGET_CC)"
+	$(MAKE) -C $(@D) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)"
 endef
 
 define ETOP_INSTALL_TARGET_CMDS
