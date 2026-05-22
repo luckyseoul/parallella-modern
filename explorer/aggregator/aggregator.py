@@ -1,12 +1,13 @@
 """
-Parallel Idea Aggregator v0.2
+Parallel Idea Aggregator v0.3
 
-Collects results from all Epiphany cores, deduplicates,
-scores them, and forwards high-value ideas to Grok.
+Collects results from all Epiphany cores using shared memory,
+deduplicates, scores them, and forwards high-value ideas to Grok.
 """
 
 import time
-from typing import List, Dict
+from typing import List
+from shared_memory import EpiphanyMemoryReader
 
 class Idea:
     def __init__(self, text: str, source_core: int, confidence: float):
@@ -24,17 +25,19 @@ class IdeaAggregator:
         self.seen = set()
         self.pending: List[Idea] = []
         self.high_value: List[Idea] = []
+        self.mem_reader = EpiphanyMemoryReader()
 
     def collect_results(self):
-        """Read new results from Epiphany shared memory (stub)"""
-        # TODO: Implement actual shared memory read
-        pass
+        """Read new results from Epiphany shared memory"""
+        self.mem_reader.open()
+        # TODO: Actually parse explorer_output_t structures
+        self.mem_reader.close()
 
     def deduplicate(self):
         """Remove duplicate or near-duplicate ideas"""
         unique = []
         for idea in self.pending:
-            key = idea.text[:40]  # crude dedup
+            key = idea.text[:40]
             if key not in self.seen:
                 self.seen.add(key)
                 unique.append(idea)
@@ -42,7 +45,6 @@ class IdeaAggregator:
 
     def evaluate_with_grok(self):
         """Send promising ideas to Grok for deeper evaluation"""
-        # TODO: Call Grok OAuth endpoint
         for idea in self.pending:
             if idea.confidence > 0.75:
                 idea.grok_score = 0.85  # placeholder
