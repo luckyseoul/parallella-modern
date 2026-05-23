@@ -21,21 +21,33 @@ Both modes use Grok (via OAuth) for high-quality responses while keeping power u
 - Proactive idea surfacing and casual check-ins
 - Modern first-boot experience
 - `etop` – lightweight Epiphany mesh monitor (supports E16 and E64)
+- FPGA bitstream loader
+- Buildroot external tree with custom packages
+
+## Buildroot External Tree Packages
+
+- etop
+- firstboot
+- explorer
+- aggregator
+- fpga-loader
+- epiphany (kernels + python tools)
 
 ## Project Structure
 
 ```
 parallella-nemo/
 ├── explorer/           # Parallel Idea Engine
-├── buildroot/          # Image configurations
+├── external/parallella # Buildroot packages and defconfigs
 ├── scripts/            # First-boot installer, FPGA tools, etop
 ├── epiphany/           # Low-level Epiphany kernels
+├── board/              # Board support
 └── docs/
 ```
 
 ## Status
 
-Early development. The Parallel Autonomous Idea Engine is the current focus.
+Early development. The Buildroot external tree is now buildable. Python3 + aggregator support requires further toolchain tuning.
 
 ## License
 
