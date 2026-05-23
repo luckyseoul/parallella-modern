@@ -1,7 +1,7 @@
 # Top-level build for Parallella Nemo
 
 BR2_EXTERNAL := $(CURDIR)/external/parallella
-BR2_DEFCONFIG := $(CURDIR)/external/parallella/defconfig
+BR2_DEFCONFIG := $(CURDIR)/external/parallella/defconfig-headless
 
 .PHONY: all clean
 
