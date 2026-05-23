@@ -1,9 +1,10 @@
 # Building Parallella Nemo
 
-## Requirements
+## Current Status (v1)
 
-- Buildroot (auto-cloned by build.sh if missing)
-- Host tools: make, gcc, git
+The Buildroot external tree is now in a working, buildable state.
+
+**Known limitation**: Python3 and aggregator are disabled in the current defconfig due to toolchain compatibility issues with the Zynq configuration. A future update will resolve this.
 
 ## Quick Build
 
@@ -12,32 +13,18 @@
 ```
 
 This will:
-1. Clone Buildroot (shallow) to ../buildroot if not present
-2. Configure with the Parallella Nemo defconfig-headless
-3. Build the full image
+1. Clone Buildroot (shallow) if not present
+2. Apply `defconfig-headless`
+3. Build the image
 
-## Manual Build
+## Packages Included
 
-```bash
-make -C ../buildroot BR2_EXTERNAL=$(pwd)/external/parallella \
-    defconfig BR2_DEFCONFIG=$(pwd)/external/parallella/defconfig-headless
-
-make -C ../buildroot BR2_EXTERNAL=$(pwd)/external/parallella
-```
-
-## Available Defconfigs
-
-- `defconfig-headless` – minimal headless image (current default)
-- `defconfig` – legacy / base config
-
-## Packages included in external tree
-
-- etop (Epiphany monitor)
+- etop
 - firstboot
 - explorer
-- aggregator
-- fpga-loader (bitstream loading)
+- fpga-loader
+- epiphany
 
 ## Output
 
-The resulting image will be in `../buildroot/output/images/`.
+Images will be in `../buildroot/output/images/`.
